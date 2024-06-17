@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  db_id         String    @id @unique @default(cuid())
+  id            String    @unique
+  email         String    @unique
+  username      String?
+  profile_image String?
+  preferences   String[]  @default(["DATA_STRUCTURES", " ALGORITHMS"])
+  messages      Message[]
+
+  @@map("users")
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  message    String
+  user       User?    @relation(fields: [user_id], references: [id])
+  user_id    String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("messages")
+}
