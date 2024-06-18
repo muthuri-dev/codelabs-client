@@ -1,3 +1,4 @@
+import Discussion from "@/views/Discussion";
 import PageNavbar, {
   PageNavbarIconButton,
   PageNavbarLeftContent,
@@ -8,9 +9,12 @@ import { Add, Notification, People, SearchNormal1 } from "iconsax-react";
 import PageContent from "@/layout/PageContent";
 import DashboardLayout from "@/layout/DashboardLayout";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import DiscussionsPage, { AddDiscussion } from "@/views/DiscussionsPage";
 
-export default async function page() {
+export default async function page({
+  params,
+}: {
+  params: { discussion_id: string };
+}) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   return (
@@ -43,16 +47,7 @@ export default async function page() {
       </PageNavbar>
 
       <PageContent>
-        <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-          {/* Grid */}
-          <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
-            {/* Card */}
-            <DiscussionsPage />
-          </div>
-          <div className="fixed bottom-0 w-[70%]">
-            <AddDiscussion user={user} />
-          </div>
-        </div>
+        <Discussion discussion_id={params.discussion_id} user={user} />
       </PageContent>
     </DashboardLayout>
   );

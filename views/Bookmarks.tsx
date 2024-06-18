@@ -18,7 +18,7 @@ export default function Bookmarks({ user }: { user: any }) {
   //getting all user bookmarks
   const { data: bookmarkData, error } = useQuery(GET_BOOKMARKS);
   const bookmarks: IBookmark[] = bookmarkData?.getBookmarks;
-  console.log(bookmarks, error);
+  //console.log(bookmarks, error);
 
   return (
     <>

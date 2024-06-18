@@ -15,9 +15,9 @@ import {
 import PageContent from "@/layout/PageContent";
 import TraningAnalysis from "@/components/dashboardComponents/TrainingAnalysis";
 import CourseProgress from "@/components/dashboardComponents/CourseProgress";
-import EmployeeSpotlight from "@/components/dashboardComponents/EmployeeSpotlight";
+import UserSpotlight from "@/components/dashboardComponents/UserSpotlight";
 import TimeTracker from "@/components/dashboardComponents/TimeTracker";
-import Notes from "@/components/dashboardComponents/Notes";
+import BookNotes from "@/components/dashboardComponents/BookNotes";
 
 import StatusTracker from "@/components/dashboardComponents/StatusTracker";
 import CurrentProject from "@/components/dashboardComponents/CurrentProject";
@@ -28,14 +28,14 @@ import DashboardLayout from "@/layout/DashboardLayout";
 import { useRouter } from "next/navigation";
 
 function DashboardPage({ user }: { user: any }) {
-  //login user after 5-seconds in the dashboard
+  //login user after 3-seconds in the dashboard
   const route = useRouter();
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       if (!user) {
         route.push("/api/auth/login");
       }
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timeout);
   }, [user, route]);
 
@@ -94,7 +94,7 @@ function DashboardPage({ user }: { user: any }) {
           </div>
 
           <div className="break-inside-avoid-column space-y-4">
-            <EmployeeSpotlight />
+            <UserSpotlight user={user} />
           </div>
 
           <div className="break-inside-avoid-column space-y-4">
@@ -102,7 +102,7 @@ function DashboardPage({ user }: { user: any }) {
           </div>
 
           <div className="break-inside-avoid-column space-y-4">
-            <Notes />
+            <BookNotes user={user} />
           </div>
 
           <div className="break-inside-avoid-column space-y-4">

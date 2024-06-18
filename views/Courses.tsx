@@ -92,7 +92,7 @@ export default function Courses({ user }: { user: any }) {
                       <div className="md:flex gap-1">
                         <BookmarkPlus
                           size="32"
-                          className="flex justify-end mb-1 ml-5"
+                          className="flex justify-end mb-1 ml-5 cursor-pointer"
                           onClick={() => handleBookmark(course.id)}
                         />
                         <Button

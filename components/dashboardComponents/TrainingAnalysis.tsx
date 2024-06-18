@@ -24,7 +24,7 @@ function TraningAnalysis() {
       <div className="flex justify-between">
         <div className="space-y-1">
           <div>
-            <p className="text-sm text-gray-800 font-medium">12 courses</p>
+            <p className="text-sm text-gray-800 font-medium">5 courses</p>
             <p className="text-xs">Completed in this quarter</p>
           </div>
           {/* attendes */}
@@ -52,7 +52,7 @@ function TraningAnalysis() {
                 className="outline outline-white rounded-full -ml-0.5 group-hover:ml-0 duration-200"
               />
             </div>
-            <p className="text-xs">26 Attended</p>
+            <p className="text-xs">13 Attended</p>
           </div>
         </div>
 

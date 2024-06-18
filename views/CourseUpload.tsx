@@ -7,6 +7,12 @@ import { useMutation } from "@apollo/client";
 import { CREATE_COURSE } from "@/graphql/course.action";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+// import FroalaEditor from "react-froala-wysiwyg";
+// import "froala-editor/js/plugins/image.min.js";
+// import "froala-editor/js/plugins/char_counter.min.js";
+// import "froala-editor/js/plugins/save.min.js";
+// import "froala-editor/js/plugins/markdown.min.js";
+// import "froala-editor/js/plugins/code_view.min.js";
 
 interface SubTopic {
   title: string;
@@ -184,9 +190,14 @@ export default function CourseUpload({ user }: { user: any }) {
       if (!user) {
         route.push("/api/auth/login");
       }
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timeout);
   }, [user, route]);
+
+  //editor config
+  // const [model, setModel] = React.useState<string>(() => {
+  //   return localStorage.getItem("savedHtml") || "";
+  // });
   return (
     <div className={`p-4 relative w-full  ${!user ? "blur-sm" : ""}`}>
       {topics.map((topic, topicIndex) => (
@@ -235,6 +246,31 @@ export default function CourseUpload({ user }: { user: any }) {
                 </div>
                 <div className="ml-4">
                   {subTopic.content.map((content, contentIndex) => (
+                    // here for editor
+                    // <FroalaEditor
+                    //   model={content}
+                    //   onModelChange={(event: any) =>
+                    //     handleContentChange(
+                    //       event,
+                    //       topicIndex,
+                    //       contentIndex,
+                    //       subTopicIndex
+                    //     )
+                    //   }
+                    //   key={contentIndex}
+                    //   config={{
+                    //     placeholderText: `Start writing content ${
+                    //       contentIndex + 1
+                    //     }`,
+                    //     saveInterval: 2000,
+                    //     event: {
+                    //       "save.before": function (html: string) {
+                    //         localStorage.setItem("savedHtml", html);
+                    //       },
+                    //     },
+                    //   }}
+                    //   tag="input"
+                    // />
                     <input
                       key={contentIndex}
                       type="text"

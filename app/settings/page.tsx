@@ -5,11 +5,14 @@ import PageNavbar, {
   PageNavbarLeftContent,
   PageNavbarRightContent,
 } from "@/layout/PageNavbar";
-import { SearchNormal1, Setting4, Notification } from "iconsax-react";
+import { SearchNormal1, Notification, Setting2 } from "iconsax-react";
 import PageContent from "@/layout/PageContent";
 import Image from "next/image";
 import { Button } from "@/components/button";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  LogoutLink,
+  getKindeServerSession,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 
 export default async function page() {
   const { getUser } = getKindeServerSession();
@@ -19,7 +22,7 @@ export default async function page() {
       <PageNavbar>
         <PageNavbarLeftContent className="flex gap-4 mr-48 lg:mr-96">
           <div className=" flex justify-center items-center border rounded-full w-10 h-10 all-center ">
-            <Setting4 size={18} />
+            <Setting2 size={18} />
           </div>
           <div>
             <h1 className="text-sm font-semibold text-gray-800">
@@ -119,18 +122,6 @@ export default async function page() {
               </p>
             </div>
             <div className="border-t border-gray-200 space-y-4">
-              <div className="flex justify-between items-center py-4">
-                <p className="text-sm text-gray-900">TD Canada Trust</p>
-                <button className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </div>
-              <div className="flex justify-between items-center py-4">
-                <p className="text-sm text-gray-900">Royal Bank of Canada</p>
-                <button className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  Update
-                </button>
-              </div>
               <div className="py-4">
                 <button className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                   + Add another Payment
@@ -146,7 +137,7 @@ export default async function page() {
               size={"lg"}
               className="flex justify-end"
             >
-              Logout
+              <LogoutLink>Logout</LogoutLink>
             </Button>
           </div>
         </form>
