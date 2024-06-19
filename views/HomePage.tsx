@@ -163,12 +163,14 @@ export default function HomePage() {
               and grow together. Join us to unlock your potential and be part of
               a vibrant, supportive community!
             </p>
-            <Button variant="default">
-              Learn more on Lab
-              <span>
-                <CircleChevronRight />
-              </span>
-            </Button>
+            <Link href="/dashboard">
+              <Button variant="default">
+                Learn more on Lab
+                <span className="ml-4">
+                  <CircleChevronRight />
+                </span>
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="flex items-center justify-center bg-gradient-to-r from-blue-50 to-white">
@@ -184,7 +186,9 @@ export default function HomePage() {
               innovative app.
             </p>
             <div className="flex justify-center">
-              <Button variant="default">Get started →</Button>
+              <Link href="/dashboard">
+                <Button variant="default">Get started →</Button>
+              </Link>
             </div>
           </div>
         </div>
