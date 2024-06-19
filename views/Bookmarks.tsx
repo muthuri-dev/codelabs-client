@@ -28,7 +28,9 @@ export default function Bookmarks({ user }: { user: any }) {
           .map((bookmark, index) => (
             <div
               key={index}
-              className="sm:w-screen md:w-full md:space-x-2 md:space-y-2 grid grid-cols-1 lg:grid-cols-2"
+              className={`sm:w-screen md:w-full md:space-x-2 md:space-y-2 grid grid-cols-1 lg:grid-cols-2 ${
+                user ? "" : "blur-md"
+              }`}
             >
               <BookmarkedCourses course_id={bookmark.course_id} />
             </div>

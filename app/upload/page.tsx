@@ -11,6 +11,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { SearchNormal1, Notification } from "iconsax-react";
 import { CloudUpload } from "lucide-react";
 import React from "react";
+import CoursePlan from "@/views/CoursePlan";
 
 export default async function page() {
   const { getUser } = getKindeServerSession();
@@ -43,15 +44,15 @@ export default async function page() {
       </PageNavbar>
       <PageContent>
         <Tabs defaultValue="step1" className="w-full overflow-x-hidden">
-          <TabsList>
+          <TabsList className="grid w-full grid-cols-2 bg-violet-500/90 text-white">
             <TabsTrigger value="step1">Plan a course</TabsTrigger>
-            <TabsTrigger value="step2">Create course</TabsTrigger>
-            <TabsTrigger value="step3">Create a course now</TabsTrigger>
+            <TabsTrigger value="step2">Create a course now</TabsTrigger>
           </TabsList>
-          <TabsContent value="step1">Planing course</TabsContent>
-          <TabsContent value="step2">How to create</TabsContent>
-          <TabsContent value="step3">
-            <div className="flex justify-center content-center items-center md:hidden">
+          <TabsContent value="step1">
+            <CoursePlan />
+          </TabsContent>
+          <TabsContent value="step2" className={`${user ? "" : "blur-md"}`}>
+            <div className="sm:flex justify-center content-center items-center md:hidden">
               Use a tablet or computer to create a course
             </div>
             <div className="hidden md:block">

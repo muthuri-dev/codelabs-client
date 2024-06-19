@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { MultiStepLoader } from "@/components/homePageComponents/MultiStepLoader";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   const placeholders = [
@@ -57,12 +58,12 @@ export default function HomePage() {
               <a href="/dashboard">
                 <Button variant="default">Get started on lab</Button>
               </a>
-              <a
-                href="https://github.com/muthuri-dev/codelabs"
+              <Link
+                href="https://github.com/muthuri-dev/codelabs-client"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 GitHub repo <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

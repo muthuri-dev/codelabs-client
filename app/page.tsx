@@ -9,7 +9,6 @@ export default async function Home() {
   const { isAuthenticated, getUser } = getKindeServerSession();
   const authenticated = await isAuthenticated();
   const user = await getUser();
-  console.log(user?.id);
   return (
     <main className="">
       <LandingPageNavbar authenticated={authenticated} user={user} />

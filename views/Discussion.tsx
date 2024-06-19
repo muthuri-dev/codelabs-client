@@ -62,7 +62,9 @@ export default function Discussion({
   };
 
   return (
-    <div className="w-full lg:max-w-[70%] mx-auto p-4">
+    <div
+      className={`w-full lg:max-w-[70%] mx-auto p-4 ${user ? "" : "blur-md"}`}
+    >
       {discussions &&
         discussions
           .filter((discussion) => discussion.id === discussion_id)

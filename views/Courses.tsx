@@ -58,7 +58,11 @@ export default function Courses({ user }: { user: any }) {
     });
   };
   return (
-    <div className="sm:w-screen md:w-full md:space-x-2 md:space-y-2 grid grid-cols-1 lg:grid-cols-2">
+    <div
+      className={`sm:w-screen md:w-full md:space-x-2 md:space-y-2 grid grid-cols-1 lg:grid-cols-2 ${
+        user ? "" : "blur-md"
+      }`}
+    >
       {courses &&
         courses
           .filter((course) => course.publish === true)

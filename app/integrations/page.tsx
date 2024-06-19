@@ -52,7 +52,7 @@ async function Integrations() {
             <TabsTrigger value="Connected">Connected</TabsTrigger>
             <TabsTrigger value="Disconnected">Disconnected</TabsTrigger>
           </TabsList>
-          <TabsContent value="All">
+          <TabsContent value="All" className={`${user ? "" : "blur-md"}`}>
             <div className="text-sm">
               <h1 className="text-gray-800 font-medium">
                 Available integrations

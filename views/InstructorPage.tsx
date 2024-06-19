@@ -36,7 +36,7 @@ export default function InstructorPage({ user }: { user: any }) {
     skip: !user?.id,
   });
   const courses: ICourse[] = data?.getUserUploadedCourses;
-  console.log(courses, error);
+  //console.log(courses, error);
   // Calculate the percentage
   const totalCourses = courses ? courses.length : 0;
 
@@ -51,12 +51,16 @@ export default function InstructorPage({ user }: { user: any }) {
   const route = useRouter();
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500">
+    <div
+      className={`w-full px-4 sm:px-6 lg:px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500 ${
+        user ? "" : "blur-md"
+      }`}
+    >
       <div className="flex flex-wrap -mx-3 mb-5 removable">
         <div className="w-full px-3 mb-6 lg:w-8/12">
           <div className="relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-violet-500/50 mb-5">
             {/* card body */}
-            <div className="flex-auto block py-8 px-6 lg:px-9 bg-gradient-to-r from-violet-500/60 to-white">
+            <div className="flex-auto flex py-8 px-6 lg:px-9 bg-gradient-to-r from-violet-500/60 to-white">
               <div className="m-0 z-20 relative">
                 <div className="relative z-20 text-2xl lg:text-3xl font-mono text-white w-full lg:w-3/4">
                   {user?.given_name} {user?.family_name}
@@ -201,7 +205,7 @@ export default function InstructorPage({ user }: { user: any }) {
         <div className="w-full px-3 mb-6 lg:w-4/12">
           <div className="relative flex flex-col min-w-0 break-words border-0 bg-clip-border rounded-2xl mb-5 bg-gradient-to-r from-white to-violet-500/50">
             {/* card header */}
-            <div className="px-6 lg:px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
+            <div className="px-6 lg:px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-full pb-1 bg-transparent">
               <div className="flex flex-col items-start justify-center m-2 ml-0 font-medium text-lg lg:text-xl text-dark">
                 {/*begin::Amount*/}
                 <span className="text-dark text-4xl lg:text-5xl font-semibold mr-2 tracking-[-0.115rem]">

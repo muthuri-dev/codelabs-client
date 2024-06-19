@@ -30,7 +30,7 @@ export default function Chat({ user }: { user: any }) {
     init();
   }, [state.appConfig.appID, state.appConfig.serverSecret, state.userInfo]);
   return (
-    <div className="w-full">
+    <div className={`w-full ${user ? "" : "blur-md"}`}>
       <Common></Common>
     </div>
   );

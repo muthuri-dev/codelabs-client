@@ -6,12 +6,12 @@ import React from "react";
 import { Button } from "../button";
 import { Drawer, DrawerContent, DrawerTrigger } from "../drawer";
 import Login from "../shared/Login";
+import { TextalignRight } from "iconsax-react";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "About us", href: "#" },
-  { name: "Products", href: "#" },
-  { name: "Developers", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "About us", href: "/about" },
+  { name: "Developers", href: "/developers" },
 ];
 
 export default function LandingPageNavbar({
@@ -52,11 +52,11 @@ export default function LandingPageNavbar({
             <Image src="/whitebg.png" height={100} width={100} alt="logo" />
           </a>
         </div>
-        <div className="flex lg:hidden">
-          {/* <Drawer>
+        <div className="sm:flex lg:hidden">
+          <Drawer>
             <DrawerTrigger asChild>
-              <Button className="flex md:hidden">
-                <AlignRight className="h-6 w-6" aria-hidden="true" />
+              <Button variant={"ghost"} className="flex md:hidden">
+                <TextalignRight color="#8F00FF" variant="Outline" />
               </Button>
             </DrawerTrigger>
             <DrawerContent className="flex flex-col items-center top-0 -right-0 w-1/2 bg-white">
@@ -79,7 +79,7 @@ export default function LandingPageNavbar({
                 </div>
               </div>
             </DrawerContent>
-          </Drawer> */}
+          </Drawer>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (

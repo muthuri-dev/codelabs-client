@@ -85,7 +85,7 @@ function BookmarkCourse({ course_id }: { course_id: string }) {
             </div>
           </div>
 
-          <hr className="bg-gray-400" />
+          <hr className="bg-gray-400 mt-3" />
         </div>
       ) : (
         <>Add favourites bookmarks</>

@@ -18,6 +18,7 @@ import { usePathname } from "next/navigation";
 import { useCentralStore } from "@/store/central.store";
 import React from "react";
 import { CloudUpload } from "lucide-react";
+import { ScrollArea } from "@/components/scroll-area";
 
 export const sideBarLinks = [
   { id: 1, url: "/dashboard", icon: Element3, value: "Dashboard" },
@@ -45,71 +46,73 @@ function Sidebar({ user }: { user: any }) {
         {/* section divider */}
         <hr className="bg-gray-400 mx-2" />
 
-        {/* other section */}
-        <div className="flex flex-col h-full justify-between">
-          {/* top */}
-          <div className="pt-6 text-gray-500 font-medium space-y-2 md:px-2 text-xs">
-            {sideBarLinks.map((sidebar) => (
-              <Link
-                key={sidebar.id}
-                href={sidebar.url}
-                className={`flex ${
-                  pathname === sidebar.url ? "text-violet-500/60" : ""
-                } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
-              >
-                <sidebar.icon variant="Outline" size={16} />
-                {sidebar.value}
-              </Link>
-            ))}
-          </div>
-
-          <div>
-            <div className="text-gray-500 text-xs font-medium md:px-2">
-              <Link
-                href={"/settings"}
-                className={`flex ${
-                  pathname === "/settings" ? "text-violet-500/60" : ""
-                } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
-              >
-                <Setting2 size={16} />
-                Settings
-              </Link>
-
-              <Link
-                href={"/support"}
-                className={`flex ${
-                  pathname === "/support" ? "text-primary" : ""
-                } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
-              >
-                <Headphone size={16} />
-                Support
-              </Link>
+        <ScrollArea className="h-full">
+          {/* other section */}
+          <div className="flex flex-col h-full justify-between">
+            {/* top */}
+            <div className="pt-6 text-gray-500 font-medium space-y-2 md:px-2 text-xs">
+              {sideBarLinks.map((sidebar) => (
+                <Link
+                  key={sidebar.id}
+                  href={sidebar.url}
+                  className={`flex ${
+                    pathname === sidebar.url ? "text-violet-500/60" : ""
+                  } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
+                >
+                  <sidebar.icon variant="Outline" size={16} />
+                  {sidebar.value}
+                </Link>
+              ))}
             </div>
 
-            <hr className="bg-gray-400 mx-2 my-4" />
+            <div>
+              <div className="text-gray-500 text-xs font-medium md:px-2 ">
+                <Link
+                  href={"/settings"}
+                  className={`flex ${
+                    pathname === "/settings" ? "text-violet-500/60" : ""
+                  } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
+                >
+                  <Setting2 size={16} />
+                  Settings
+                </Link>
 
-            {/* bottom */}
-            <div className="flex pb-28 justify-between px-4 md:px-6 items-center cursor-pointer hover:pr-5 duration-200">
-              <div className="flex items-center gap-2">
-                <Image
-                  src={user?.picture}
-                  alt="User"
-                  width={36}
-                  height={36}
-                  className="rounded-full"
-                />
-                <div className="">
-                  <p className="text-sm font-semibold text-gray-800">
-                    {user?.given_name} {user?.family_name}
-                  </p>
-                  <p className="text-xs font-medium text-gray-500">
-                    {user?.email}
-                  </p>
+                <Link
+                  href={"/support"}
+                  className={`flex ${
+                    pathname === "/support" ? "text-primary" : ""
+                  } hover:px-8 duration-200 px-6 py-2 items-center gap-2`}
+                >
+                  <Headphone size={16} />
+                  Support
+                </Link>
+              </div>
+
+              <hr className="bg-gray-400 mx-2 my-4" />
+
+              {/* bottom */}
+              <div className="flex pb-28 justify-between px-4 md:px-6 items-center cursor-pointer hover:pr-5 duration-200">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={user?.picture}
+                    alt="User"
+                    width={36}
+                    height={36}
+                    className="rounded-full"
+                  />
+                  <div className="">
+                    <p className="text-sm font-semibold text-gray-800">
+                      {user?.given_name} {user?.family_name}
+                    </p>
+                    <p className="text-xs font-medium text-gray-500">
+                      {user?.email}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollArea>
       </div>
     </div>
   );
