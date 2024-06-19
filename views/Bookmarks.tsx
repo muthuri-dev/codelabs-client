@@ -9,6 +9,7 @@ import { UserProfile } from "@/components/shared/Comments";
 import { Badge } from "@/components/badge";
 import Image from "next/image";
 import { GET_BOOKMARKS } from "@/graphql/bookmark.actions";
+import Link from "next/link";
 
 interface IBookmark {
   course_id: string;
@@ -85,7 +86,9 @@ function BookmarkedCourses({ course_id }: { course_id: string }) {
               <div className="flex justify-between mt-2 ">
                 <UserProfile user_id={course.user_id} />
                 <div className="md:flex gap-1">
-                  <Button size={"sm"}>Enroll</Button>
+                  <Link href={`/course/${course.id}`}>
+                    <Button size={"sm"}>Enroll</Button>
+                  </Link>
                 </div>
               </div>
             </div>
