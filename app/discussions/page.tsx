@@ -53,7 +53,7 @@ export default async function page() {
             {/* Card */}
             <DiscussionsPage />
           </div>
-          <div className="fixed bottom-0 w-[70%]">
+          <div className="fixed bottom-0 sm:w-full md:w-[70%] bg-white">
             <AddDiscussion user={user} />
           </div>
         </div>

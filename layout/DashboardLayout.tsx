@@ -48,7 +48,7 @@ const DashboardLayout = ({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3, type: "spring", bounce: 0.25 }}
-            className="absolute md:hidden z-30 top-0 left-0"
+            className="absolute md:hidden z-50 bg-white top-0 left-0"
           >
             <Sidebar user={user} />
           </motion.div>
