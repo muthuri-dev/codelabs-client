@@ -84,7 +84,67 @@ To start using Equine Tracker, follow these installation steps:
 
 The application uses different microservices(subgraphs) connected together with graphql federation 2 gateway which connects with frontend.Each microservice uses different database
 
-![codelabs.png](/.eraser/VU6n1CKCIe3oVBiKNXES___hJuLF9q4mgcDgmFW7ntHRbaoiOh1___RXlqlt40_JJYK9QmCZb33.png "codelabs.png")
+![aanew](https://github.com/muthuri-dev/codelabs-client/assets/82339780/b0235a9c-4f13-4de1-8880-7a0928cc6325)
+
+### Api gateway
+
+It uses Apollo gateway to connect all the services.
+
+```bash
+    @Module({
+  imports: [
+    GraphQLModule.forRoot<ApolloGatewayDriverConfig>({
+      driver: ApolloGatewayDriver,
+      gateway: {
+        supergraphSdl: new IntrospectAndCompose({
+          subgraphs: [
+            {
+              name: 'users',
+              url: 'https://codelabs-users-service...',
+            },
+            {
+              name: 'courses',
+              url: 'https://codelabs-courses-service...',
+            },
+            {
+              name: 'discussions',
+              url: 'https://codelabs-discussions-service...',
+            },
+            {
+              name: 'other-services',
+              url: 'https://codelabs-other-service...',
+            },
+          ],
+        }),
+      },
+      server: {
+        playground: true,
+        introspection: true,
+      },
+    }),
+  ],
+  controllers: [],
+  providers: [],
+})
+export class AppModule {}
+
+```
+
+### Connecting to the api-gateway in next js
+
+```bash
+"use client";
+import React from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+export default function Provider({ children }: { children: React.ReactNode }) {
+  const client = new ApolloClient({
+    uri: "https://codelabs-api-gateway.up.railway.app/graphql",
+    cache: new InMemoryCache(),
+  });
+  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+}
+```
 
 ## Contributing
 
@@ -99,5 +159,3 @@ Equine Tracker is open-source software licensed under the Apache License 2.0. Fo
 We'd like to extend our gratitude to the equestrian community for their support and inspiration.
 
 Thank you for choosing codelabs!
-
-<!--- Eraser file: https://app.eraser.io/workspace/VU6n1CKCIe3oVBiKNXES --->
