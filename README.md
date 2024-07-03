@@ -129,6 +129,10 @@ It uses Apollo gateway to connect all the services.
 export class AppModule {}
 
 ```
+### Api gateway source code
+```bash
+https://github.com/muthuri-dev/codelabs-api-gateway
+```
 
 ### Connecting to the api-gateway in next js
 
